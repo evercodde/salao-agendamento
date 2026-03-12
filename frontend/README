@@ -1,0 +1,217 @@
+4️⃣ Criar o Frontend (React + Vite)
+
+No terminal:
+
+npm create vite@latest frontend
+
+Escolha:
+
+React
+JavaScript
+
+Depois entre na pasta:
+
+cd frontend
+
+Instale dependências:
+
+npm install
+
+Instalar Tailwind:
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+Configure o tailwind.config.js:
+
+content: [
+"./index.html",
+"./src/**/*.{js,ts,jsx,tsx}",
+]
+
+No arquivo index.css:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+5️⃣ Instalar Supabase no Frontend
+
+Instalar SDK:
+
+npm install @supabase/supabase-js
+
+Criar arquivo:
+
+src/services/supabaseClient.js
+
+Código:
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'SUA_URL_SUPABASE'
+const supabaseKey = 'SUA_ANON_KEY'
+
+export const supabase = createClient(supabaseUrl, supabaseKey)
+
+Você encontra essas chaves em:
+
+Supabase
+→ Project Settings
+→ API
+6️⃣ Criar Páginas Principais
+
+Dentro de:
+
+src/pages
+
+Criar:
+
+Home.jsx
+Portfolio.jsx
+Agendamento.jsx
+Confirmacao.jsx
+AdminDashboard.jsx
+AgendaAdmin.jsx
+ServicosAdmin.jsx
+PortfolioAdmin.jsx
+7️⃣ Criar Componentes Reutilizáveis
+
+Dentro de:
+
+src/components
+
+Criar:
+
+Header.jsx
+Footer.jsx
+PortfolioCard.jsx
+ServiceCard.jsx
+CalendarPicker.jsx
+HorarioButton.jsx
+8️⃣ Criar Serviço de Agendamento
+
+Arquivo:
+
+src/services/agendamentoService.js
+
+Exemplo:
+
+import { supabase } from "./supabaseClient"
+
+export async function criarAgendamento(data){
+
+const { error } = await supabase
+.from("agendamentos")
+.insert([data])
+
+if(error) throw error
+
+}
+9️⃣ Criar Função de Horários Disponíveis
+
+Arquivo:
+
+src/utils/calcularHorariosDisponiveis.js
+
+Estrutura inicial:
+
+export function calcularHorariosDisponiveis(
+agendamentos,
+duracaoServico,
+horaAbertura,
+horaFechamento
+){
+
+let horariosDisponiveis = []
+
+// lógica para gerar horários livres
+
+return horariosDisponiveis
+
+}
+
+Essa função:
+
+1️⃣ pega agendamentos existentes
+2️⃣ calcula intervalos livres
+3️⃣ verifica se o serviço cabe
+4️⃣ retorna horários possíveis
+
+🔟 Criar Painel da Admin
+
+Página:
+
+AgendaAdmin.jsx
+
+Buscar agendamentos do dia:
+
+const { data } = await supabase
+.from("agendamentos")
+.select(`
+id,
+data,
+hora_inicio,
+clientes(nome),
+servicos(nome)
+`)
+.eq("data", hoje)
+
+Exibir agenda:
+
+08:00 Maria - Trança cacheada
+14:00 Ana - Escova
+17:00 Julia - Hidratacao
+1️⃣1️⃣ Upload de Fotos do Portfólio
+
+Usar:
+
+Supabase Storage
+
+Criar bucket:
+
+portfolio
+
+Upload exemplo:
+
+const { data, error } = await supabase
+.storage
+.from('portfolio')
+.upload('foto1.jpg', file)
+
+Depois salvar URL em:
+
+portfolio_fotos
+1️⃣2️⃣ Lembrete Automático (Fase 2)
+
+Fluxo futuro:
+
+n8n
+ou
+Zapier
+
+Fluxo:
+
+cron job diário
+↓
+buscar agendamentos amanhã
+↓
+enviar WhatsApp
+Estrutura Final do Projeto
+salao-agendamento
+
+/docs
+    documento-visao.md
+
+/database
+    schema.sql
+    seeds.sql
+
+/frontend
+    src
+        components
+        pages
+        services
+        hooks
+        utils
+
+README.md
