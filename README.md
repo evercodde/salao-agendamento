@@ -1,329 +1,319 @@
-🚀 Pipeline de Desenvolvimento do Projeto
+# 💇‍♀️ Sistema de Agendamento para Salão de Cabeleireiro
 
-Ideia → Discovery → Documentação → Prompt → Lovable → Protótipo
+Sistema web **mobile-first** para gestão de agenda, portfólio de serviços e agendamento online de um salão especializado em **tranças, tratamentos capilares e mega hair**.
 
-Cada etapa gera um artefato específico que será usado na próxima fase.
+O projeto foi desenvolvido seguindo um fluxo estruturado de **Product Discovery e Engenharia de Software**, com foco na construção de um **MVP funcional** que resolva problemas reais da empreendedora parceira.
 
-1️⃣ ETAPA 1 — Ideia
+---
 
-Objetivo:
-Definir o problema inicial e a ideia do produto.
+# 📌 Objetivo do Projeto
 
-Documento gerado
-ideia-produto.md
-Estrutura do documento
-Nome do produto
+Criar uma plataforma simples e eficiente que permita:
 
-Ainda em definição.
+### Para clientes
 
-Descrição da ideia
+* visualizar portfólio de trabalhos
+* conhecer serviços disponíveis
+* realizar agendamentos online
+* descrever o serviço desejado antes do atendimento
 
-Sistema digital para auxiliar uma empreendedora de salão especializada em tranças, tratamentos capilares e mega hair a organizar sua agenda, apresentar seu portfólio e permitir que clientes agendem serviços online.
+### Para a empreendedora
 
-Quem usaria o sistema
+* centralizar a agenda
+* evitar conflitos de horário
+* organizar serviços oferecidos
+* manter um portfólio atualizado
+* reduzir trabalho manual via WhatsApp
 
-Usuário 1 — Empreendedora
+---
 
-gerencia agenda
+# 🧩 Problema Identificado
 
-cadastra serviços
+A empreendedora atualmente gerencia seus atendimentos usando:
 
-envia fotos para portfólio
+* WhatsApp
+* agenda manual
+* um sistema pago limitado
 
-acompanha atendimentos
+Isso gera problemas como:
 
-Usuário 2 — Cliente
+* conflitos de horário
+* dificuldade de organização da agenda
+* ausência de portfólio digital estruturado
+* trabalho manual excessivo
+* risco de no-show de clientes
 
-visualiza portfólio
+---
 
-escolhe serviço
+# 🚀 Proposta de Solução
 
-agenda horário
+Criar um **sistema web mobile-first** que centralize:
 
-Problema que estamos tentando resolver
+* portfólio de serviços
+* agendamento online
+* gestão da agenda
+* organização de serviços
 
-A empreendedora atualmente gerencia:
+O sistema foi planejado para evoluir futuramente para:
 
-agenda manual
+* automação de WhatsApp com IA
+* histórico capilar das clientes
+* plataforma de gestão para salões
 
-WhatsApp
+---
 
-sistema pago limitado
+# 🏗 Arquitetura do Sistema
 
-Isso gera:
+Arquitetura moderna baseada em aplicações web desacopladas.
 
-conflitos de horário
+```
+Frontend (React + Vite + Tailwind)
+        │
+        ▼
+Supabase (API + Auth + Storage)
+        │
+        ▼
+PostgreSQL (Banco de Dados)
+```
 
-muito trabalho manual
+Futuras integrações:
 
-dificuldade de apresentar serviços
+```
+n8n / Zapier
+        │
+        ▼
+WhatsApp API
+        │
+        ▼
+Envio automático de lembretes
+```
 
-no-show de clientes
+---
 
-2️⃣ ETAPA 2 — Product Discovery
+# 🧪 Escopo do MVP
 
-Objetivo:
-Validar se o problema realmente existe e entender melhor os usuários.
+Funcionalidades que fazem parte do MVP:
 
-Documento gerado:
+1. Portfólio público de serviços
+2. Cadastro de serviços
+3. Agendamento online
+4. Cálculo automático de horários disponíveis
+5. Painel administrativo com agenda
+
+Funcionalidades futuras:
+
+* lembretes automáticos via WhatsApp
+* integração com Google Agenda
+* IA para atendimento automático
+* histórico capilar
+* passaporte capilar
+
+---
+
+# 👥 Usuários do Sistema
+
+## Cliente
+
+Pode:
+
+* visualizar portfólio
+* escolher serviços
+* agendar horários
+* descrever o atendimento desejado
+
+## Empreendedora (Admin)
+
+Pode:
+
+* cadastrar serviços
+* gerenciar agenda
+* visualizar agendamentos
+* gerenciar portfólio
+
+---
+
+# 🗂 Estrutura do Repositório
+
+```
+.
+├── docs
+│   ├── 01_ideia_produto.md
+│   ├── 02_product_discovery.md
+│   ├── 03_visao_produto.md
+│   ├── 04_mvp_escopo.md
+│   ├── 05_product_backlog.md
+│   ├── 06_modelo_dominio.md
+│   ├── 07_modelo_dados.md
+│   ├── 08_regras_negocio.md
+│   ├── 09_arquitetura_sistema.md
+│   ├── 10_prompt_lovable.md
+│   └── 11_diagramas_sistema.md
+│
+├── database
+│   ├── schema.sql
+│   └── seeds.sql
+│
+├── frontend
+│   └── aplicação React
+│
+└── README.md
+```
+
+---
+
+# 🛠 Tecnologias Utilizadas
 
-product-discovery.md
-2.1 Validação da Dor
-
-Perguntas respondidas:
-
-Pergunta	Resposta
-Quem sofre com o problema	empreendedora do salão
-Com que frequência	diariamente
-Como resolve hoje	WhatsApp + agenda manual
-Problema da solução atual	desorganização e esforço manual
-O que acontece se não resolver	perda de clientes e tempo
-Classificação da Dor
-
-Escala:
-
-1 curiosidade
-2 conveniência
-3 incômodo
-4 dor real
-5 dor crítica
-
-Resultado:
-
-Dor = 4 (dor real)
-
-Motivo:
-
-afeta faturamento
-
-gera trabalho manual diário
-
-prejudica organização
-
-2.2 Validação de Mercado
-
-Perguntas:
-
-Pergunta	Resposta
-Quantas pessoas têm esse problema	milhares de salões
-Problema comum ou específico	comum
-Existem soluções	sim
-Classificação do mercado
-Mercado = Médio / Amplo
-
-Porque existem muitos salões pequenos que trabalham com agenda manual.
-
-3️⃣ ETAPA 3 — Definição do Produto
-
-Documento:
-
-product-definition.md
-Personas
-Nome	Perfil	Objetivo	Dificuldade
-Maria (empreendedora)	dona do salão	organizar agenda	trabalho manual
-Ana (cliente)	cliente frequente	marcar horário fácil	demora no WhatsApp
-Juliana (cliente nova)	busca serviços online	ver portfólio	não conhece o trabalho
-Product Vision
-
-Modelo:
-
-Para: clientes e empreendedoras de salão
-
-Que possuem o problema: dificuldade de organizar agenda e apresentar serviços
-
-O produto: sistema de agendamento para salão
-
-É um: sistema web mobile-first
-
-Que permite: agendamento online e gestão da agenda
-
-Diferente de: agenda manual ou WhatsApp
-
-Nosso sistema: centraliza serviços, agenda e portfólio.
-4️⃣ ETAPA 4 — Definição do MVP
-
-Documento:
-
-mvp-definition.md
-MVP explicado
-
-MVP = versão mínima que já entrega valor.
-
-Funcionalidades essenciais
-
-1️⃣ Portfólio de fotos
-2️⃣ Cadastro de serviços
-3️⃣ Agendamento online
-4️⃣ Agenda administrativa
-5️⃣ Visualização de horários disponíveis
-
-5️⃣ ETAPA 5 — Product Backlog
-
-Documento:
-
-product-backlog.md
-Prioridade Alta
-
-portfólio
-
-cadastro de serviços
-
-agendamento online
-
-agenda administrativa
-
-Prioridade Média
-
-lembrete WhatsApp
-
-integração Google Agenda
-
-Prioridade Baixa
-
-IA no WhatsApp
-
-passaporte capilar
-
-6️⃣ ETAPA 6 — Arquitetura do Sistema
-
-Documento:
-
-architecture.md
-Arquitetura
 Frontend
-React + Vite + Tailwind
-        ↓
-Backend
-Supabase
-        ↓
-Database
-PostgreSQL
-Estrutura do projeto
-frontend
-components
-pages
-services
 
-database
-schema.sql
+* React
+* Vite
+* TailwindCSS
 
-docs
-documentacao
-7️⃣ ETAPA 7 — Criação do Prompt
+Backend / Infraestrutura
 
-Documento:
+* Supabase
+* PostgreSQL
 
-lovable-prompt.md
+Automação (futuro)
 
-Este prompt será usado para gerar o sistema automaticamente.
+* n8n
+* WhatsApp API
 
-Prompt
-Crie um sistema web mobile-first para gerenciamento de um salão de beleza especializado em tranças, tratamentos capilares e mega hair.
+---
 
-Usuários:
-- empreendedora (admin)
-- clientes
+# ⚙️ Como Executar o Projeto
 
-Funcionalidades do MVP:
+### 1️⃣ Clonar o repositório
 
-1 portfólio público com fotos
-2 cadastro de serviços
-3 agendamento online
-4 cálculo automático de horários disponíveis
-5 painel administrativo com agenda
+```
+git clone <url-do-repositorio>
+cd salao-agendamento
+```
 
-Entidades principais:
+---
 
-Usuarios
-Clientes
-Servicos
-Categorias
-Agendamentos
-Portfolio
+### 2️⃣ Instalar dependências
 
-Tecnologias:
+```
+cd frontend
+npm install
+```
 
-Frontend: React + Vite + Tailwind
-Backend: Supabase
-Banco de dados: PostgreSQL
+---
 
-Regras importantes:
+### 3️⃣ Configurar Supabase
 
-- cada serviço possui duração
-- o sistema calcula horários disponíveis automaticamente
-- clientes podem descrever o pedido
-- sistema deve ser mobile-first
+Criar um projeto em **Supabase** e obter:
 
-Gere estrutura de projeto, páginas e componentes principais.
-8️⃣ ETAPA 8 — Lovable
+* SUPABASE_URL
+* SUPABASE_ANON_KEY
 
-Agora usamos:
+Criar arquivo:
 
-Lovable
+```
+src/services/supabaseClient.js
+```
 
-Passos:
+---
 
-1 abrir Lovable
-2 colar o prompt
-3 gerar projeto
-4 revisar páginas geradas
+### 4️⃣ Criar banco de dados
 
-O Lovable geralmente gera:
+Executar no Supabase SQL Editor:
 
-páginas React
+```
+database/schema.sql
+```
 
-componentes
+---
 
-layout inicial
+### 5️⃣ Rodar aplicação
 
-9️⃣ ETAPA 9 — Protótipo
+```
+npm run dev
+```
 
-Resultado esperado:
+---
 
-Protótipo funcional com:
+# 📊 Fluxo do Usuário
 
-Páginas
+```
+Cliente acessa o site
+        │
+        ▼
+Visualiza portfólio
+        │
+        ▼
+Escolhe serviço
+        │
+        ▼
+Seleciona data
+        │
+        ▼
+Seleciona horário disponível
+        │
+        ▼
+Confirma agendamento
+        │
+        ▼
+Agendamento salvo no banco
+```
 
-Home
+---
 
-Portfólio
+# 📈 Roadmap do Projeto
 
-Agendamento
+### Fase 1
 
-Confirmação
+Portfólio + painel admin
 
-Painel Admin
+### Fase 2
 
-Fluxo do usuário
-Cliente entra no site
+Agendamento online + agenda administrativa
+
+### Fase 3
+
+Automação WhatsApp
+
+### Fase 4
+
+Assistente capilar com IA
+
+### Fase 5
+
+Passaporte capilar digital
+
+---
+
+# 📚 Metodologia Utilizada
+
+O projeto foi desenvolvido seguindo o fluxo:
+
+```
+Ideia
 ↓
-visualiza portfólio
+Product Discovery
 ↓
-escolhe serviço
+Documentação
 ↓
-seleciona horário
+Prompt para geração de sistema
 ↓
-confirma agendamento
-📦 Estrutura final de documentação
-docs
+Protótipo
+↓
+Implementação
+```
 
-ideia-produto.md
-product-discovery.md
-product-definition.md
-mvp-definition.md
-product-backlog.md
-architecture.md
-lovable-prompt.md
-📊 Benefício desse fluxo
+---
 
-Esse pipeline permite:
+# 👨‍💻 Equipe
 
-validar problema
+Projeto desenvolvido por estudantes de Engenharia de Software em parceria com uma empreendedora do setor de beleza.
 
-estruturar produto
+Integrantes da equipe:
 
-documentar regras
+* A preencher
 
-gerar sistema com IA
+---
 
-criar protótipo rápido
+# 📄 Licença
+
+Projeto acadêmico desenvolvido para fins educacionais.
